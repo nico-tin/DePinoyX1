@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DePinoy Color Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+        <div class="logo-container">
+            <img src="images/DPX-LOGO.png" alt="Logo">
+            <span class="logo-text">DPX</span>
+        </div>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="how-to-play.html">How to Play</a>
+            <a href="#">My NFTs</a>
+        </div>
+        <button id="connectWallet" class="connect-wallet">Connect Wallet</button>
+        <button id="disconnectWallet" class="disconnect-wallet" style="display:none;">Disconnect</button>
+    </nav>
+
+    <div class="main-content-intro">
+        <h1 class="super-heading">DePinoy Color Game</h1>
+        <p class="subheading">powered by Core</p>
+        <br>
+        <p class="description">
+            Inspired by the classic Filipino color game, now reimagined for the Web3 era! Bet, spin, and win with fast payouts, 
+            secure blockchain transactions, and thrilling real-time gameplay. Whether you're in the Philippines or anywhere in the world, 
+            luck is just a spin away!
+        </p>
+        <button class="play-button">PLAY NOW</button>
+    </div>
+
+    <script>
+        async function connectWallet() {
+            const button = document.getElementById('connectWallet');
+
+            if (window.ethereum) {
+                button.innerText = "Connecting...";
+                button.disabled = true;
+
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    const walletAddress = accounts[0];
+                    button.innerText = walletAddress.slice(0, 6) + '...' + walletAddress.slice(-4);
+                } catch (error) {
+                    console.error("User denied wallet connection", error);
+                    button.innerText = "Connect Wallet";
+                    button.disabled = false;
+                }
+            } else {
+                alert("MetaMask is not installed. Please install it to connect.");
+            }
+        }
+
+        document.getElementById('connectWallet').addEventListener('click', connectWallet);
+
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const menuIcon = document.querySelector('.menu-icon');
+
+            navLinks.classList.toggle('show');
+
+            menuIcon.innerHTML = navLinks.classList.contains('show') ? "&#10005;" : "&#9776;";
+        }
+    </script>
+</body>
+</html>
