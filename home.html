@@ -38,15 +38,17 @@
     <script>
         async function connectWallet() {
             const button = document.getElementById('connectWallet');
-
+    
             if (window.ethereum) {
                 button.innerText = "Connecting...";
                 button.disabled = true;
-
+    
                 try {
                     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
                     const walletAddress = accounts[0];
+                    localStorage.setItem('walletAddress', walletAddress); // Store wallet address
                     button.innerText = walletAddress.slice(0, 6) + '...' + walletAddress.slice(-4);
+                    button.disabled = false;
                 } catch (error) {
                     console.error("User denied wallet connection", error);
                     button.innerText = "Connect Wallet";
@@ -56,17 +58,37 @@
                 alert("MetaMask is not installed. Please install it to connect.");
             }
         }
-
+    
         document.getElementById('connectWallet').addEventListener('click', connectWallet);
-
+    
         function toggleMenu() {
             const navLinks = document.querySelector('.nav-links');
             const menuIcon = document.querySelector('.menu-icon');
-
+    
             navLinks.classList.toggle('show');
-
             menuIcon.innerHTML = navLinks.classList.contains('show') ? "&#10005;" : "&#9776;";
         }
+    
+        // Function to handle Play Now button
+        async function handlePlayNow() {
+            if (window.ethereum) {
+                const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+    
+                if (accounts.length > 0) {
+                    // Wallet is connected, redirect to play-now.html
+                    window.location.href = "how-to-play.html";
+                } else {
+                    // Wallet not connected, prompt user to connect
+                    alert("Please connect your MetaMask wallet to play.");
+                    await connectWallet(); // Call the connect function
+                }
+            } else {
+                alert("MetaMask is not installed. Please install it to connect.");
+            }
+        }
+    
+        document.querySelector('.play-button').addEventListener('click', handlePlayNow);
     </script>
+    
 </body>
 </html>
