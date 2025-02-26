@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Betting Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gamestyle.css">
+</head>
+<body>
+    <nav class="navbar">
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+        <div class="logo-container">
+            <img src="images/DPX-LOGO.png" alt="Logo">
+            <span class="logo-text">DPX</span>
+        </div>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="how-to-play.html">How to Play</a>
+            <a href="#">My NFTs</a>
+        </div>
+        <button id="connectWallet" class="connect-wallet">Connect Wallet</button>
+        <button id="disconnectWallet" class="disconnect-wallet" style="display:none;">Disconnect</button>
+    </nav>
+
+    <center>
+    <div class="container">
+        <h2>Enter Your Bet (CORE)</h2>
+        <input type="number" id="betAmount" placeholder="Min Bet: 1 CORE | Max Bet: 100 CORE" min="1">
+
+        <h2>Choose how many colors to bet</h2>
+        <div class="bet-options">
+            <button class="bet-btn" data-count="1" disabled>1 Color</button>
+            <button class="bet-btn" data-count="2" disabled>2 Colors</button>
+            <button class="bet-btn" data-count="3" disabled>3 Colors</button>
+            <button class="bet-btn" data-count="4" disabled>4 Colors</button>
+            <button class="bet-btn" data-count="5" disabled>5 Colors</button>
+            <button class="bet-btn" data-count="6" disabled>6 Colors</button>
+        </div>
+
+        <h2>Select Colors</h2>
+        <div class="color-options">
+            <button class="color-btn color-red" data-color="red" disabled>Red</button>
+            <button class="color-btn color-blue" data-color="blue" disabled>Blue</button>
+            <button class="color-btn color-green" data-color="green" disabled>Green</button>
+            <button class="color-btn color-pink" data-color="pink" disabled>Pink</button>
+            <button class="color-btn color-yellow" data-color="yellow" disabled>Yellow</button>
+            <button class="color-btn color-purple" data-color="purple" disabled>Purple</button>
+        </div>
+
+        <div class="actions">
+            <button id="placeBet" disabled>Place Bet</button>
+            <button id="cancelBet">Cancel Bet</button>
+        </div>
+    </div>
+</center>
+
+<!-- Footer -->
+<div class="footer">
+    <p>Connected to Core Blockchain</p>
+    <p><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
+</div>
+    <script src="script2.js"></script>
+</body>
+</html>

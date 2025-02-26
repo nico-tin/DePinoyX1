@@ -1,0 +1,258 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #E3E3E3;
+    margin: 0;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #242526;
+    padding: 10px 100px;
+    box-shadow: 0px 4px 20px rgba(255, 140, 0, 0.3);
+    z-index: 1000;
+}
+/* --- logo ---*/
+.navbar img {
+    height: 70px;
+    margin-right: 0px;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+.logo-text {
+    color: #FF9311;
+    font-size: 30px;
+    font-weight: bold;
+}
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #E3E3E3;
+}
+/* --- "Home", "How to Play", "My NFTs" ---*/
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+.nav-links a {
+    position: relative;
+    color: #E3E3E3;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 400;
+}
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: #FF9311;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+.nav-links a:hover::after {
+    width: 100%;
+    left: 0;
+}
+.nav-links a:hover {
+    color: #FF9311;
+}
+/* --- connect wallet button ---*/
+.connect-wallet {
+    background: none;
+    border: 2px solid #FF9311;
+    color: #E3E3E3;
+    padding: 10px 30px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    font-weight: 600;
+    border-radius: 30px;
+}
+.connect-wallet:hover {
+    background: #FF9311;
+    color: #242526;
+}
+
+
+
+.container {
+    text-align: center;
+    align-items: center;
+    width: 50%;
+    margin: 100px 100px;
+    padding: 20px;
+    background-color: #1E1E1E;
+    box-shadow: 0px 4px 10px rgba(255, 140, 0, 0.2);
+    border-radius: 10px;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+.bet-options, .color-options, .actions {
+    margin: 10px 0;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+}
+
+/* Center and style input field */
+#betAmount {
+    width: 60%; /* Adjust width to match buttons */
+    height: 40px;
+    text-align: center; /* Center text inside */
+    font-size: 18px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 5px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Add a subtle effect when input is active */
+#betAmount:focus {
+    border-color: orange;
+}
+
+/* Ensure proper alignment */
+.input-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+button:disabled {
+    background-color: #666;
+    color: #aaa;
+    cursor: not-allowed;
+    border: #666;
+}
+
+.bet-btn {
+    background-color: transparent;
+    border: 2px solid orange;
+    color: orange;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.bet-btn:hover:not(:disabled) {
+    background-color: orange;
+    color: black;
+}
+
+.bet-btn.active {
+    background-color: orange;
+    color: black;
+}
+
+#placeBet {
+    background-color: #2a9d8f;
+    color: white;
+}
+
+#cancelBet {
+    background-color: #e76f51;
+    color: white;
+}
+
+#placeBet:disabled {
+    background-color: #ccc;
+}
+
+.color-btn {
+    width: 70px; /* Adjust size */
+    height: 70px;
+    border-radius: 15px; /* Rounded corners */
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); /* Soft glow effect */
+    transition: transform 0.2s, box-shadow 0.2s;
+    color: black;
+    
+}
+
+.color-btn:hover:not(:disabled) {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+}
+
+/* Assigning colors */
+.color-red:not(:disabled) {
+    background-color: #FF4500;
+    box-shadow: 0 0 15px #FF4500;
+}
+.color-blue:not(:disabled) {
+    background-color: #00E6FF;
+    box-shadow: 0 0 15px #00E6FF;
+}
+.color-green:not(:disabled) {
+    background-color: #00FF57;
+    box-shadow: 0 0 15px #00FF57;
+}
+.color-pink:not(:disabled) {
+    background-color: #FF00F5;
+    box-shadow: 0 0 15px #FF00F5;
+}
+.color-yellow:not(:disabled) {
+    background-color: #FFF500;
+    box-shadow: 0 0 15px #FFF500;
+}
+.color-purple:not(:disabled) {
+    background-color: #8A2BE2;
+    box-shadow: 0 0 15px #8A2BE2;
+}
+
+.color-btn.selected, .color-btn.selected:hover {
+    box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.6);
+    transform: scale(0.95);
+}
+
+
+/* -------------- Css para sa footer --------------*/
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #242526;
+    color: #E3E3E3;
+    font-size: 14px;
+    margin-top: 50px;
+}
+
+.footer a {
+    color: #FF9311;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
